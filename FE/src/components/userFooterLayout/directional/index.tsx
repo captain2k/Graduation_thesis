@@ -9,9 +9,9 @@ const Directional = () => {
         <div className="directional__list">
             <ul>
                 <li><Link to='/'>Trang chủ</Link></li>
-                <li><Link to='/introduce'>Về chúng tôi</Link></li>
+                {/* <li><Link to='/introduce'>Về chúng tôi</Link></li> */}
                 <li><Link to='/product'>Sản phẩm</Link></li>
-                <li><Link to='/news'>Điểm tin hữu ích</Link></li>
+                {/* <li><Link to='/news'>Điểm tin hữu ích</Link></li> */}
                 <li><Link to='/contact'>Liên hệ</Link></li>
             </ul>
         </div>

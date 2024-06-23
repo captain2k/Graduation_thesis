@@ -42,8 +42,8 @@ class NewsService {
         "name",
         "createdAt",
         "updatedAt",
-        [sequelize.literal("Markdown_data.contentHTML"), "contentHTML"],
-        [sequelize.literal("Markdown_data.contentMarkdown"), "contentMarkdown"],
+        // [sequelize.literal("Markdown_data.contentHTML"), "contentHTML"],
+        // [sequelize.literal("Markdown_data.contentMarkdown"), "contentMarkdown"],
       ],
       offset: (page - 1) * limit,
       include: [

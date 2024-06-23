@@ -96,16 +96,16 @@ const ContentUser = () => {
         ></ModalChangePassword>
       ),
     },
-    {
-      key: "3",
-      className: !user.id && "hidden",
-      label: (
-        <div onClick={handleRedirect}>
-          <ShoppingOutlined className="icon__dropdown"/>
-          Purchase order
-        </div>
-      ),
-    },
+    // {
+    //   key: "3",
+    //   className: !user.id && "hidden",
+    //   label: (
+    //     <div onClick={handleRedirect}>
+    //       <ShoppingOutlined className="icon__dropdown"/>
+    //       Purchase order
+    //     </div>
+    //   ),
+    // },
     {
       key: "4",
       className: !user.id && "hidden",

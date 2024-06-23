@@ -28,6 +28,9 @@ const Products = ({ dataProduct }: ProductProps) => {
   const userId = useAppSelector((state: RootState) => state.user.id);
   const list_order = useAppSelector((state: RootState) => state.order.list_order);
 
+  console.log(dataProduct);
+  
+
   const productInOrder = useMemo(() => {
     return list_order.map((order) => {
       return order.productId;

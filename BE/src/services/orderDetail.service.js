@@ -19,19 +19,18 @@ class OrderService {
     if (!query.user_id || !query.id) {
       throw new BadRequestError("user_id and id is not empty!");
     }
-
     const order = await db.Orders.findByPk(query.id);
     if (+order.user_id !== +query.user_id) {
       throw new ForbiddenError("User don't have a permission!");
     }
-
+    
     const orderDetail = await db.OrderDetail.findAll({
       where: {
         order_id: query.id,
       },
       include: [{ model: db.Products, as: "product_data" }],
     });
-
+    
     return orderDetail;
   };
 

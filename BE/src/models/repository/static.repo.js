@@ -21,7 +21,9 @@ const createNewStatic = async (payload) => {
   const update = { ...payload };
   const options = { upsert: true };
 
-  return await db.Static.findOneAndUpdate({
+  console.log('update>>>>>>', update);
+
+  return await db.Static.create({
     filter: filter,
     values: update,
     options: options,

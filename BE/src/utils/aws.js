@@ -13,7 +13,7 @@ const myBucket = new AWS.S3({
 
 export const uploadFileS3 = (file, nameFile) => {
     const params = {
-        ACL: "public-read",
+        ACL: 'public-read-write',
         Body: file,
         Bucket: process.env.AWS_S3_BUCKET,
         Key: nameFile,
@@ -23,6 +23,7 @@ export const uploadFileS3 = (file, nameFile) => {
     return new Promise((resolve, reject) => {
         try {
             myBucket.upload(params, (err, data) => {
+              console.log('err>>',err);
                 if (err) {
                     reject(err)
                 } else {
@@ -31,6 +32,7 @@ export const uploadFileS3 = (file, nameFile) => {
                 }
             });
         } catch (err) {
+          console.log('err>>', err);
             reject(err)
         }
     })

@@ -48,7 +48,7 @@ const FormPay = ({ order_id, dataOrder }: Props, ref) => {
       const { message } = await orderApi.updateOrder({
         ...data,
         id: order_id,
-        order_status: "wait_confirmation",
+        order_status: "pending",
       });
 
       Notification({

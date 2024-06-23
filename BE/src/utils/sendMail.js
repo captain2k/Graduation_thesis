@@ -46,7 +46,7 @@ export const sendMailSingUP = async ({ data, token }) => {
     const transporter = await sendMailOauth2();
 
     await transporter.sendMail({
-      from: `"Đồ gỗ Thành Lành"<${process.env.EMAIL_ROOT}>`,
+      from: `"WheyStore"<${process.env.EMAIL_ROOT}>`,
       to: data.email,
       subject: "Verify Email ✔",
       html: `<!DOCTYPE html>
@@ -126,7 +126,7 @@ export const sendMailWhenOrder = async ({ orderDetail, order, activeAB }) => {
     `;
 
     await transporter.sendMail({
-      from: `"Đồ gỗ Thành Lành"<${process.env.EMAIL_ROOT}>`,
+      from: `"WheyStore"<${process.env.EMAIL_ROOT}>`,
       to: order.email,
       subject: "Xác nhận Đơn hàng Sản phẩm ",
       html: htmlContent,
@@ -184,7 +184,7 @@ export const sendMailOrderForShop = async ({ orderDetail, order, activeAB }) => 
      `;
 
     await transporter.sendMail({
-      from: `"Đồ gỗ Thành Lành"<${process.env.EMAIL_ROOT}>`,
+      from: `"WheyStore"<${process.env.EMAIL_ROOT}>`,
       to: process.env.EMAIL_ROOT,
       subject: "Xác nhận Đơn hàng Sản phẩm",
       html: htmlContent,

@@ -34,7 +34,7 @@ const MenuNavbar = () => {
         );
       });
 
-      setMenu(menu);
+      setMenu(menu.filter(item => item.key !== "/admin/setting_static" && item.key !== "/admin/about-us" && item.key !== "/admin/statistical"));
     } catch (error) {
       NotificationError(error)
     } finally {

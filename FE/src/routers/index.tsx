@@ -129,14 +129,14 @@ function RouterComponent() {
           path: "manage-order",
           element: <ManageOrder />
         },
-        {
-          path: "about-us",
-          element: <AboutUS />
-        },
-        {
-          path: "statistical",
-          element: <Statistical />
-        },
+        // {
+        //   path: "about-us",
+        //   element: <AboutUS />
+        // },
+        // {
+        //   path: "statistical",
+        //   element: <Statistical />
+        // },
       ]
     },
     {

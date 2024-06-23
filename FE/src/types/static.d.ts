@@ -51,7 +51,7 @@ interface topDataProductStatic {
     stock_quantity: number,
     category_id: number,
     images: string,
-    createdAt: string,
-    updatedAt: string
+    createdAt?: string,
+    updatedAt?: string
 }
 

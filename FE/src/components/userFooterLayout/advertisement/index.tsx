@@ -16,9 +16,9 @@ const Advertisement = () => {
   return (
     <div className="advertisement layout__footer-contain">
         <div className="util__logo">
-          <Link to="/">
+          {/* <Link to="/">
             <img width="200" height="100" src={logo} alt="noithatbanghe" />
-          </Link>
+          </Link> */}
         </div>
         <div className="advertisement__content">
             <p>Reveal yourself through your choice</p>

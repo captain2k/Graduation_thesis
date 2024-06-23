@@ -77,6 +77,7 @@ export const handlePrevImageS3 = async (fileList) => {
 
     const nameAvatar = `${moment().format("YYYY-MM-DD HH:MM:ss")}_${imageUpload.name
       }`;
+
     const avatar_S3 = await uploadFileS3(
       imageUpload.originFileObj,
       nameAvatar

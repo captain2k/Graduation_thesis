@@ -72,16 +72,16 @@ const FormProduct = ({ isEdit }: Props) => {
       : "";
       dataValue.images = typeof imagesUpload === 'string' ? imagesUpload : JSON.stringify(imagesUpload);
  
-      const { metadata } = await markDownApi.createMarkdown({
-        contentHTML: markdown.html, 
-        contentMarkdown: markdown.text,
-        id: isEdit && productSelected?.markdown_id ? productSelected?.markdown_id : null,
-      })
+      // const { metadata } = await markDownApi.createMarkdown({
+      //   contentHTML: markdown.html, 
+      //   contentMarkdown: markdown.text,
+      //   id: isEdit && productSelected?.markdown_id ? productSelected?.markdown_id : null,
+      // })
 
-      const { id } = metadata;
-      dataValue.markdown_id = id;
-      dataValue.contentHTML = markdown.html;
-      dataValue.contentMarkdown = markdown.text;
+      // const { id } = metadata;
+      // dataValue.markdown_id = id;
+      // dataValue.contentHTML = markdown.html;
+      // dataValue.contentMarkdown = markdown.text;
       
       isEdit
         ? handleSubmitEdit(dataValue, dispatch, eventEmitter)
@@ -216,13 +216,13 @@ const FormProduct = ({ isEdit }: Props) => {
               rows={4}
             />
           </Col>
-          <Col md={24} span={24}>
+          {/* <Col md={24} span={24}>
             Markdown
           </Col>
           <Col md={24} span={24}>
            <MarkdownProduct showMarkDown={showMarkDown} handleEditorChange={debounceEditor} markdown={markdown}/>
            
-          </Col>
+          </Col> */}
         </Row>
         <div className="button__footer">
           <ButtonComponent

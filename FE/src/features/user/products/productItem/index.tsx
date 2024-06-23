@@ -134,8 +134,6 @@ const ProductItem = ({handleScrollPage}: Props) => {
                       <div className="item__content-image">
                       <Link to={`/product/${product.id}`} >
                         <img src={image.url} alt={product.description} />
-
-                       
                       </Link>
                       <div className="shopping_card" onClick={(e) => e.preventDefault()}>
                           {productInOrder.includes(product.id) ? (

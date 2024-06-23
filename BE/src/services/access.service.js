@@ -83,10 +83,12 @@ class AccessService {
       throw new BadRequestError("Please verify email. Before login!");
     }
 
+
     // //create privateKey, public key
     const privateKey = crypto.randomBytes(64).toString("hex");
     const publicKey = crypto.randomBytes(64).toString("hex");
 
+    console.log("email, password,>>>>>>>",publicKey);
     // // generator tokens
     const tokens = await createTokenPair(
       { user_id: foundUser.id, email, role_user: foundUser.role_user },
@@ -94,12 +96,15 @@ class AccessService {
       privateKey
     );
 
+
     await tokenService.createKeyToken({
       userId: foundUser.id,
       publicKey,
       privateKey,
       refreshToken: tokens.refreshToken,
     });
+
+
 
     return {
       user: getInfoData({
@@ -251,6 +256,7 @@ class AccessService {
 
     try {
       const fileData = await fs.readFile(pathImage);
+
       const fileS3 = await uploadFileS3(fileData, nameImage);
 
       //delete file in folder upload

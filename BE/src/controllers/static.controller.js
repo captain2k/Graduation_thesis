@@ -13,14 +13,14 @@ class StaticController {
 
     getStatic = async (req, res, next) => {
         new SuccessResponse({
-            message: 'set static success!',
+            message: 'get static success!',
             metadata: await StaticService.getStatic(req.body),
         }).send(res)
     }
 
     getStaticPage = async (req, res, next) => {
         new SuccessResponse({
-            message: 'set static page success!',
+            message: 'get static page success!',
             metadata: await StaticService.getStaticPage(req.query),
         }).send(res)
     }

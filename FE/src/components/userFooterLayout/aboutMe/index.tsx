@@ -10,13 +10,13 @@ const AboutMe = () => {
       </div>
       <div className="aboutMe__content">
         <div className="aboutMe__content-field">
-          <p><span>Address:</span>{activeAbout?.address}</p>
+          <p><span>Address:</span> 125 Lê Thanh Nghị, HBT, Hà Nội</p>
         </div>
         <div className="aboutMe__content-field">
-          <p><span>Telephone:</span> {activeAbout?.phone_number}</p>
+          <p><span>Telephone:</span> 0919013030</p>
         </div>
         <div className="aboutMe__content-field">
-          <p><span>Email:</span> {activeAbout?.email}</p>
+          <p><span>Email:</span> wheystore@gmail.com</p>
         </div>
       </div>
     </div>

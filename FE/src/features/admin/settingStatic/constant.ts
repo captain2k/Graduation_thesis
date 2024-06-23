@@ -36,13 +36,13 @@ type imageType = {
 export type initialValueType = {
     ImageSP: imageType[],
     Images: imageType[],
-    productShow: number[],
+    productShow: number,
     type: number | null,
 }
 
 export const initialValue: initialValueType = {
     ImageSP: [],
     Images: [],
-    productShow: [],
+    productShow: null,
     type: null,
 };

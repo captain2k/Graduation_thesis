@@ -23,9 +23,9 @@ export type FormData = yup.InferType<typeof schema>;
 
 export const optionStatusOrder = [
     { value: "pending", label: "pending" },
-    { value: "wait_confirmation", label: "wait_confirmation" },
+    
     { value: "confirmed", label: "confirmed" },
-    { value: "shipped", label: "shipped" },
+   
     { value: "cancelled", label: "cancelled" },
-    { value: "delivered", label: "delivered" },
+    
 ]

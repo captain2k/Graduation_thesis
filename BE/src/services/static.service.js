@@ -25,8 +25,12 @@ class CategoryService {
     if(type) {
       optionQuery.where.type =  type;
     }
+    
+    const res = await db.Static.findAll();
+    console.log('res>>>>>>', res);
 
-    return await db.Static.findAll(optionQuery);
+
+    return res
   }
 
   static getStaticPage = async (payload) => {
@@ -35,6 +39,7 @@ class CategoryService {
     }
 
     const staticPg = await CategoryService.getStatic(payload).then(async (response) => {
+      console.log('response>>>>>', response);
       const [ static_page ] = response;
       if(!static_page) {
         return {
@@ -69,6 +74,7 @@ class CategoryService {
         productShow: productEnabled,
       };
     });
+
 
     return staticPg;
   }

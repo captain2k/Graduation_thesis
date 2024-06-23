@@ -96,6 +96,9 @@ export const orderUser = createSlice({
             const { rows, count } = action.payload;
             const [orderField] = rows;
 
+          console.log(orderField, 'orderField');
+          
+
             if(orderField) {
                 const { id, order_status, order_detail, address, name, email, phone_number } = orderField;
 

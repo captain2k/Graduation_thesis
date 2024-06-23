@@ -36,15 +36,6 @@ const Banner: React.FC = () => {
               className="img__content"
               style={{ backgroundImage: `url(${image.url})` }}
             >
-              {index === 0 ? (
-                <div className="img__content-text">
-                  <h2>Chair set with Lounge</h2>
-                  <p>
-                    Reveal Yourself <strong>THROUGH YOUR CHOICE</strong>
-                  </p>
-                  <button>Mua ngay</button>
-                </div>
-              ) : null}
             </div>
           </div>
         );

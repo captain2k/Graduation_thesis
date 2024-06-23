@@ -40,6 +40,7 @@ class CategoryService {
       {name: '5 stars', count: 0, value: 5},
     ]
 
+
     const countStar = await db.Evaluate.findAll({
       where: {
         product_id: query.product_id,
@@ -102,6 +103,7 @@ class CategoryService {
         return acc;
       }, initValueCountStar);
     });
+
 
     const countReview = await db.Evaluate.count({
       where: {

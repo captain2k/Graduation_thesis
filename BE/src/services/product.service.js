@@ -25,19 +25,22 @@ class ProductService {
     const limit = query.limit ? +query.limit : null;
     const valueSearch = query.name;
 
+    
     const queryWhere = {
       [Op.or]: [{ name: { [Op.like]: `%${valueSearch}%` } }],
     };
-
+    
     if (query.category_id) {
       queryWhere.category_id = query.category_id;
     }
-
+    
     if (query.minPrice && query.maxPrice) {
       queryWhere.price = {
         [Op.between]: [query.minPrice, query.maxPrice],
       };
     }
+
+    console.log(`sequelize.literal("category_data.name"), "category_name">>>>>`, sequelize.literal("markdown_data.contentHTML"), "category_name");
 
     const queryOptions = {
       where: {
@@ -55,8 +58,8 @@ class ProductService {
         "updatedAt",
         "markdown_id",
         [sequelize.literal("category_data.name"), "category_name"],
-        [sequelize.literal("markdown_data.contentHTML"), "contentHTML"],
-        [sequelize.literal("markdown_data.contentMarkdown"), "contentMarkdown"],
+        // [sequelize.literal("markdown_data.contentHTML"), "contenthtml"],
+        // [sequelize.literal("markdown_data.contentMarkdown"), "contentMarkdown"],
       ],
       offset: (page - 1) * limit,
       include: [
@@ -65,11 +68,13 @@ class ProductService {
       ],
     };
 
+
     if (limit !== null) {
       queryOptions.limit = limit;
     }
 
-    return await db.Products.findAndCountAll(queryOptions);
+    const res = await db.Products.findAndCountAll(queryOptions);
+    return res
   };
 
   static createProduct = async (data) => {
@@ -154,8 +159,8 @@ class ProductService {
         "updatedAt",
         "markdown_id",
         [sequelize.literal("category_data.name"), "category_name"],
-        [sequelize.literal("markdown_data.contentHTML"), "contentHTML"],
-        [sequelize.literal("markdown_data.contentMarkdown"), "contentMarkdown"],
+        // [sequelize.literal("markdown_data.contentHTML"), "contentHTML"],
+        // [sequelize.literal("markdown_data.contentMarkdown"), "contentMarkdown"],
       ],
       include: [
         { model: db.Categories, as: "category_data", attributes: [] },
@@ -168,6 +173,7 @@ class ProductService {
     const page = +query.page || 1;
     const limit = query.limit ? +query.limit : null;
 
+    
     if (!query.id || !query.category_id) {
       throw new BadRequestError("id and category_id is required!");
     }

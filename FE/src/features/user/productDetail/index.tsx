@@ -42,59 +42,59 @@ const ProductDetail = () => {
   }, [id]);
 
   //
-  useEffect(() => {
-    // URL server websocket
-    const wsUrl = import.meta.env.VITE_API_URL_WS;
-    // create a connect server websocket
-    ws.current = new WebSocket(wsUrl);
-    //connect success
-    ws.current.onopen = () => {
-      console.log("Connected to WebSocket server");
+  // useEffect(() => {
+  //   // URL server websocket
+  //   const wsUrl = import.meta.env.VITE_API_URL_WS;
+  //   // create a connect server websocket
+  //   ws.current = new WebSocket(wsUrl);
+  //   //connect success
+  //   ws.current.onopen = () => {
+  //     console.log("Connected to WebSocket server");
 
-      if (ws?.current?.readyState === STATUS_WS.OPEN) {
-        sendingWS(ws.current, { type: TYPE_WS.JOIN_ROOM, room_id: id });
-      }
-    };
+  //     if (ws?.current?.readyState === STATUS_WS.OPEN) {
+  //       sendingWS(ws.current, { type: TYPE_WS.JOIN_ROOM, room_id: id });
+  //     }
+  //   };
 
-    ws.current.onerror = (error) => {
-      console.error("WebSocket error:", error);
-    };
+  //   ws.current.onerror = (error) => {
+  //     console.error("WebSocket error:", error);
+  //   };
 
-    //xử lí khi websocket đã bị đóng(vd: đóng tab, mất mạng, server mất kết nối, ...),
-    //Ko thê gửi đến ws khi đã ở trạng thái close
-    ws.current.onclose = () => {
-      console.log("Disconnected from WebSocket server");
+  //   //xử lí khi websocket đã bị đóng(vd: đóng tab, mất mạng, server mất kết nối, ...),
+  //   //Ko thê gửi đến ws khi đã ở trạng thái close
+  //   ws.current.onclose = () => {
+  //     console.log("Disconnected from WebSocket server");
 
-      timeOutWs.current = setInterval(() => {
-        if(ws.current.readyState === STATUS_WS.CLOSED) {
-          console.log("re-connect websocket")
-          ws.current = new WebSocket(wsUrl);
-        } else {
-          clearInterval(timeOutWs.current);
-        }
-      }, 5000)
-    };
+  //     timeOutWs.current = setInterval(() => {
+  //       if(ws.current.readyState === STATUS_WS.CLOSED) {
+  //         console.log("re-connect websocket")
+  //         ws.current = new WebSocket(wsUrl);
+  //       } else {
+  //         clearInterval(timeOutWs.current);
+  //       }
+  //     }, 5000)
+  //   };
 
-    const handleBeforeUnload = () => {
-      if (ws?.current?.readyState === STATUS_WS.OPEN) {
-        sendingWS(ws.current, { type: TYPE_WS.LEAVE_ROOM, room_id: id });
-        destroyWS(ws.current);
-      }
-    };
+  //   const handleBeforeUnload = () => {
+  //     if (ws?.current?.readyState === STATUS_WS.OPEN) {
+  //       sendingWS(ws.current, { type: TYPE_WS.LEAVE_ROOM, room_id: id });
+  //       destroyWS(ws.current);
+  //     }
+  //   };
 
-    window.addEventListener("beforeunload", handleBeforeUnload);
+  //   window.addEventListener("beforeunload", handleBeforeUnload);
 
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-      if (ws?.current?.readyState === STATUS_WS.OPEN) {
-        handleBeforeUnload();
-      }
+  //   return () => {
+  //     window.removeEventListener("beforeunload", handleBeforeUnload);
+  //     if (ws?.current?.readyState === STATUS_WS.OPEN) {
+  //       handleBeforeUnload();
+  //     }
 
-      if(timeOutWs.current) {
-        clearInterval(timeOutWs.current)
-      }
-    };
-  }, [id]);
+  //     if(timeOutWs.current) {
+  //       clearInterval(timeOutWs.current)
+  //     }
+  //   };
+  // }, [id]);
   //
 
   useEffect(() => {
@@ -150,9 +150,9 @@ const ProductDetail = () => {
           <div className="product__detail-content">
             <ProductContent product={product} />
           </div>
-          <div className="product__detail-evaluate">
+          {/* <div className="product__detail-evaluate">
             <ProductEvaluate product={product} />
-          </div>
+          </div> */}
           <div className="product__detail-same">
             <ProductSame product={product} />
           </div>

@@ -93,6 +93,8 @@ class UserService {
   static changePassword = async (data) => {
     const { userId, password, re_password, current_password } = data;
 
+    console.log('data>>>>>>>', data);
+
     if(!userId || !password || !re_password) {
       throw new BadRequestError('id, password, re_password is not empty');
     }

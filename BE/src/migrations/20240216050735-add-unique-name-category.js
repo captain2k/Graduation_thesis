@@ -6,7 +6,7 @@ module.exports = {
     return queryInterface.sequelize.transaction(t => {
       return Promise.all([
         queryInterface.changeColumn('Categories', 'name', {
-          type: Sequelize.DataTypes.UUID,
+          type: Sequelize.DataTypes.STRING,
           unique: true,
         }, { transaction: t }),
       ]);

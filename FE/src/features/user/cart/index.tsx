@@ -8,7 +8,7 @@ import TEXT_COMMON from "@/constants/text";
 
 const CartOrder = () => {
   const [dataOrder, setDataOrder] = useState<OrderDetailState[]>([]);
-
+  
   return (
     <div className={styled["cart__main"]}>
       <div className="cart__main-container">

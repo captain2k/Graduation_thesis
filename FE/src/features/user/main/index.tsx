@@ -4,7 +4,6 @@ import Banner from "./banner";
 import Products from "./products";
 import Benefit from "./benefit";
 import BestOffer from "./bestOffer";
-import UseFulInformation from "./usefulInformation";
 import staticApi from "@/api/static";
 import MainPageContext, { defaultValueMainPage } from "./constant";
 
@@ -13,15 +12,16 @@ const MainPage = () => {
     useState<StaticPageState>(defaultValueMainPage);
   const productShow = staticHomePage?.productShow;
 
-  useEffect(() => {
-    handleGetStaticHome();
-  }, []);
+  // useEffect(() => {
+  //   handleGetStaticHome();
+  // }, []);
 
   const handleGetStaticHome = async () => {
     const { metadata } = await staticApi.getStaticPage({
       type: 1,
       limitProduct: 8,
     });
+
     setStaticHome(metadata);
   };
 
@@ -46,9 +46,9 @@ const MainPage = () => {
         <div className="main__page-product">
           <Products dataProduct={productShow?.top3} />
         </div>
-        <div className="main__useful-information">
+        {/* <div className="main__useful-information">
           <UseFulInformation />
-        </div>
+        </div> */}
       </div>
     </MainPageContext.Provider>
   );

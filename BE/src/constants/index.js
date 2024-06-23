@@ -26,13 +26,13 @@ export const menu = [
     role: [ROLE_USER.ADMIN],
     icon: "progress",
   },
-  {
-    id: 4,
-    label: "Manage News",
-    href: "/admin/manage-news",
-    role: [ROLE_USER.ADMIN],
-    icon: "manage_service_contract",
-  },
+  // {
+  //   id: 4,
+  //   label: "Manage News",
+  //   href: "/admin/manage-news",
+  //   role: [ROLE_USER.ADMIN],
+  //   icon: "manage_service_contract",
+  // },
   {
     id: 5,
     label: "Manage order",
@@ -151,9 +151,6 @@ export const TYPE_USER_ACTIVE = {
 
 export const ORDER_STATUS = {
   PENDING: 'pending',
-  WAIT_CONFIRMATION: 'wait_confirmation',
   CONFIRMED: 'confirmed',
-  SHIPPED: 'shipped',
   CANCELLED: 'cancelled',
-  DELIVERED: 'delivered',
 }

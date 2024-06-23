@@ -36,6 +36,9 @@ class ProductController {
     }
 
     getTopProduct = async (req, res, next) => {
+      console.log('req.body>>>>>>>>', req.body)
+      
+
         new SuccessResponse({
             message: 'get top product success!',
             metadata: await ProductService.getTopProduct(req.query),

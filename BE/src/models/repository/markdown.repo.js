@@ -3,6 +3,7 @@ const { Op, where } = require("sequelize");
 import db, { sequelize } from "../index";
 
 const validateMarkdown = async (payload) => {
+  console.log('payload>>>>', payload);
   const newMarkdown = await db.Markdowns.build({
     ...payload,
   });

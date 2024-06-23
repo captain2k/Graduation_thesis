@@ -2,10 +2,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import styled from "./index.module.scss";
 import { SearchOutlined } from "@ant-design/icons";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import NavBarUser from "./navMobile.tsx";
+import NavBarUser from "./navMobile.tsx/index.tsx";
 import useResizeWindow from "@/hoc/useWindow.tsx";
 import Logo from "@/assets/images/logo.png";
-import UtilUser from "./utilUser";
+import UtilUser from "./utilUser/index.tsx";
 import { RootState, useAppDispatch, useAppSelector } from "@/store/index.ts";
 import { searchOrder } from "@/store/orderUser/index.ts";
 import userApi from "@/api/user.ts";
@@ -26,11 +26,11 @@ const UserLayoutHeader = () => {
 
   const activeAbout = useAppSelector((state) => state.aboutUs.aboutUsSelected);
 
-  const logo = useMemo(() => {
-    return isJson(activeAbout?.logo)
-      ? JSON.parse(activeAbout?.logo)[0].url
-      : Logo;
-  }, [activeAbout]);
+  // const logo = useMemo(() => {
+  //   return isJson(activeAbout?.logo)
+  //     ? JSON.parse(activeAbout?.logo)[0].url
+  //     : Logo;
+  // }, [activeAbout]);
 
   const handleSetSearch = (e) => {
     const name_search = e.target.value;
@@ -57,7 +57,8 @@ const UserLayoutHeader = () => {
   const handleGetMenu = async () => {
     try {
       const { metadata } = await userApi.getMenuUser();
-      setMenu(metadata);
+      const unusedMenu = metadata?.filter(item => item.href !== '/introduce' && item.href !== '/news')
+      setMenu(unusedMenu);
       setLoading(false);
     } catch (error) {
       NotificationError(error);
@@ -120,7 +121,7 @@ const UserLayoutHeader = () => {
                   )}
                 </div>
               </div>
-              <div className="util__logo">
+              {/* <div className="util__logo">
                 <Link to="/">
                   <img
                     width="200"
@@ -129,7 +130,7 @@ const UserLayoutHeader = () => {
                     alt="noithatbanghe"
                   />
                 </Link>
-              </div>
+              </div> */}
               <UtilUser />
             </div>
           </div>
@@ -138,7 +139,7 @@ const UserLayoutHeader = () => {
               {loading ? (
                 <Skeleton active paragraph={{ rows: 0 }} />
               ) : (
-                menu.map((item, index) => {
+                menu?.map((item, index) => {
                   return (
                     <div className="wrapper__product" key={index}>
                       <NavLink to={item.href}>

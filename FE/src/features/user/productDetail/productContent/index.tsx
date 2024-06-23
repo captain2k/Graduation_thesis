@@ -34,6 +34,9 @@ const ProductContent = ({ product }: Props) => {
     url: Images.StoreEmpty,
   });
 
+  console.log(product, 'product');
+  
+
   const dispatch = useAppDispatch();
 
   const images = useMemo(() => {
@@ -211,7 +214,7 @@ const ProductContent = ({ product }: Props) => {
                   Danh mục: <span>{product?.category_name}</span>
                 </p>
               </div>
-              <div className="item__info-comment">
+              {/* <div className="item__info-comment">
                 <ModalComment
                   width={800}
                   product={product}
@@ -221,7 +224,7 @@ const ProductContent = ({ product }: Props) => {
                     </p>
                   }
                 />
-              </div>
+              </div> */}
             </div>
           ) : null}
         </Col>
